@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="bg-[url('images/bg_image.jpg')] bg-cover bg-no-repeat min-h-screen items-center flex flex-col gap-5 p-5">
+
+    <div class="flex flex-row items-center">
+        <h1 class="text-white text-2xl text-font-bold">Weather App</h1>
+        <img class="mt-4" src="{% static "images/116.png" %}" alt="">
+
+    </div>
+    <form class="flex gap-5" method="get">
+        {% csrf_token %}
+
+        <input type="text"
+            class="bg-white/20 rounded-xl px-8 outline-white text-white font-bold hover:scale-105 duration-500"
+            placeholder="Enter City Name" name="city">
+        <button><i
+                class='bxr  bx-search text-white text-2xl bg-white/20 p-3 rounded-full hover:scale-105 duration-500'></i></button>
+    </form>
+    <div class="flex text-white bg-white/20 p-5 rounded-xl gap-20 hover:scale-105 duration-500">
+        <div>
+            <p class="font-semibold mt-5 text-xl">{{temp}} &deg;C</p>
+            <p>Now</p>
+            <p class="font-semibold mt-5 text-xl">{{city}}, {{country}}</p>
+
+        </div>
+        <img src="{% static "images/113.png" %}" alt="" class="h-28 w-28">
+
+    </div>
+</body>
+
+</html>
